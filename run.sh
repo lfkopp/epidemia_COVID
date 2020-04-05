@@ -1,1 +1,2 @@
-jupyter nbconvert --to notebook --execute coletor_de_dados.ipynb
+jupyter nbconvert --to script coletor_de_dados.ipynb
+ipython coletor_de_dados.py
