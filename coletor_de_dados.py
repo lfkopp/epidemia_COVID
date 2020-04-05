@@ -49,7 +49,7 @@ except:
 all_data.tail()
 
 
-# In[ ]:
+# In[10]:
 
 
 while True:
@@ -60,6 +60,7 @@ while True:
     get_ipython().system('git pull')
     get_ipython().system('git add .')
     get_ipython().system('git commit -m "atualizando dados"')
+    get_ipython().system('git push')
     sleep(180)
 
 
