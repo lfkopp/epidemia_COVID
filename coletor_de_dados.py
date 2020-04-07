@@ -52,15 +52,18 @@ all_data.tail()
 # In[10]:
 
 
+y=0
 while True:
     all_data = all_data.append(get_data(), ignore_index=True)
     all_data = all_data.drop_duplicates(keep='first')
     all_data.to_csv('all_data.csv', index=False)
     print(all_data.shape)
-    get_ipython().system('git pull')
-    get_ipython().system('git add .')
-    get_ipython().system('git commit -m "atualizando dados"')
-    get_ipython().system('git push')
+    y += 1
+    if y%10 == 0:
+        get_ipython().system('git pull')
+        get_ipython().system('git add .')
+        get_ipython().system('git commit -m "atualizando dados"')
+        get_ipython().system('git push')
     sleep(180)
 
 
