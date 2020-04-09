@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
+# In[ ]:
 
 
 import pandas as pd
@@ -9,13 +9,13 @@ import requests
 from time import sleep
 
 
-# In[2]:
+# In[ ]:
 
 
 url  ='http://dadosabertos.rio.rj.gov.br/apiTransporte/apresentacao/rest/index.cfm/obterTodasPosicoes'
 
 
-# In[3]:
+# In[ ]:
 
 
 def get_data():
@@ -28,13 +28,13 @@ def get_data():
         return pd.DataFrame()
 
 
-# In[4]:
+# In[ ]:
 
 
 get_data()
 
 
-# In[5]:
+# In[ ]:
 
 
 try:
@@ -43,13 +43,13 @@ except:
     all_data = pd.DataFrame()
 
 
-# In[6]:
+# In[ ]:
 
 
 all_data.tail()
 
 
-# In[10]:
+# In[ ]:
 
 
 y=0
@@ -58,6 +58,9 @@ while True:
     all_data = all_data.drop_duplicates(keep='first')
     all_data.to_csv('all_data.csv', index=False)
     print(all_data.shape)
+    data = {'api_key':'QEZAG779CCSVAYZ5', 'field2': all_data.shape[0]}
+    thing_url ='https://api.thingspeak.com/update' #?api_key=QEZAG779CCSVAYZ5&field1=73
+    requests.post(thing_url,data)
     y += 1
     if y%10 == 0:
         get_ipython().system('git pull')
@@ -65,10 +68,4 @@ while True:
         get_ipython().system('git commit -m "atualizando dados"')
         get_ipython().system('git push')
     sleep(180)
-
-
-# In[ ]:
-
-
-
 
