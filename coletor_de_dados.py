@@ -58,6 +58,8 @@ while True:
     thing_url ='https://api.thingspeak.com/update'
     requests.post(thing_url,info)
     y += 1
-    sleep(180)
+    for _ in range(18):
+        print('.', end='', flush=True)
+        sleep(10)
     
 
