@@ -29,50 +29,7 @@ def get_data():
         return pd.DataFrame()
 
 
-# In[ ]:
-
-
-get_data()
-
-
-# In[ ]:
-
-
-try:
-    all_data = pd.read_csv('all_data.csv')
-except:
-    all_data = pd.DataFrame()
-
-
-# In[ ]:
-
-
-all_data.tail()
-
-
-# In[ ]:
-
-
-'''y=0
-while True:
-    all_data = all_data.append(get_data(), ignore_index=True)
-    all_data = all_data.drop_duplicates(keep='first')
-    all_data.to_csv('all_data.csv', index=False)
-    print(all_data.shape)
-    data = {'api_key':'QEZAG779CCSVAYZ5', 'field2': all_data.shape[0]}
-    thing_url ='https://api.thingspeak.com/update' #?api_key=QEZAG779CCSVAYZ5&field1=73
-    requests.post(thing_url,data)
-    y += 1
-    if y%10 == 0:
-        !git pull
-        !git add .
-        !git commit -m "atualizando dados"
-        !git push
-    sleep(180)
-'''
-
-
-# In[ ]:
+# In[23]:
 
 
 y=0
@@ -97,29 +54,10 @@ while True:
             get_ipython().system('git add .')
             get_ipython().system('git commit -m "atualizando dados"')
             get_ipython().system('git push')
-    break
     info = {'api_key':'QEZAG779CCSVAYZ5', 'field2': new_data.shape[0]}
     thing_url ='https://api.thingspeak.com/update'
     requests.post(thing_url,info)
     y += 1
     sleep(180)
     
-
-
-# In[ ]:
-
-
-new_data = get_data()
-
-
-# In[ ]:
-
-
-new_data.shape
-
-
-# In[ ]:
-
-
-
 
