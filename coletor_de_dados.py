@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[2]:
+# In[ ]:
 
 
 import pandas as pd
@@ -9,13 +9,13 @@ import requests
 from time import sleep
 
 
-# In[3]:
+# In[ ]:
 
 
 url  ='http://dadosabertos.rio.rj.gov.br/apiTransporte/apresentacao/rest/index.cfm/obterTodasPosicoes'
 
 
-# In[22]:
+# In[ ]:
 
 
 def get_data():
@@ -29,7 +29,7 @@ def get_data():
         return pd.DataFrame()
 
 
-# In[23]:
+# In[ ]:
 
 
 y=0
