@@ -49,7 +49,7 @@ while True:
             d2.to_csv(filename, index=False)
 
 
-        if y%10 == 0:
+        if y%10 == 110:
             get_ipython().system('git pull')
             get_ipython().system('git add .')
             get_ipython().system('git commit -m "atualizando dados"')
