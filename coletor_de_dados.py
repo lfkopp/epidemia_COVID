@@ -1,7 +1,13 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[ ]:
+# In[2]:
+
+
+get_ipython().system('python -m pip install -r requirements.txt')
+
+
+# In[3]:
 
 
 import pandas as pd
@@ -9,13 +15,13 @@ import requests
 from time import sleep
 
 
-# In[ ]:
+# In[4]:
 
 
 url  ='http://dadosabertos.rio.rj.gov.br/apiTransporte/apresentacao/rest/index.cfm/obterTodasPosicoes'
 
 
-# In[ ]:
+# In[5]:
 
 
 def get_data():
@@ -49,8 +55,8 @@ while True:
             d2.to_csv(filename, index=False)
 
 
-        if y%10 == 110:
-            get_ipython().system('git pull')
+        if y%10 == 0:
+            #!git pull
             get_ipython().system('git add .')
             get_ipython().system('git commit -m "atualizando dados"')
             get_ipython().system('git push')
